@@ -44,6 +44,7 @@ h2 {
     margin: 0 auto;
 }
 
+/* Wrapper Bild + Text im Header */
 .kopf_rechts {
     display: flex;
     align-items: center;
@@ -70,7 +71,7 @@ h2 {
 .Kontaktdaten {
     margin-top: 20px;
     display: flex;
-    gap: 30px;
+    gap: 20px;
     justify-content: left;
     flex-wrap: wrap;
     color: oklch(70.4% 0.04 256.788);
@@ -80,16 +81,21 @@ h2 {
 .Kontakt_item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    min-width: 0;
 }
 
 .Kontakt_item i {
     color: oklch(70.7% 0.165 254.624);
+    width: 16px;
+    text-align: center;
+    flex-shrink: 0;
 }
 
 .Kontakt_item a {
     color: oklch(70.4% 0.04 256.788);
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .Kontakt_item a:hover {
@@ -102,9 +108,8 @@ h2 {
     border-radius: 50%;
     border: 4px solid oklch(70.7% 0.165 254.624);
     object-fit: cover;
+    flex-shrink: 0;
 }
-
-
 
 /*-----------Main---------------*/
 
@@ -124,6 +129,7 @@ main {
     margin: 0 auto;
 }
 
+/* Gemeinsame Card-Styles */
 .mein-card {
     background-color: #1e293b;
     border-radius: 1rem;
@@ -133,6 +139,7 @@ main {
         0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
+/* Skills Container */
 .skill_container {
     flex: 1;
     display: flex;
@@ -174,11 +181,6 @@ main {
     padding: 10px 0px;
 }
 
-/* Muss NACH .skill_container stehen, damit display:none gewinnt */
-.mobile_skill_header {
-    display: none;
-}
-
 .skill_überschriften {
     font-size: x-larger;
     position: relative;
@@ -200,6 +202,7 @@ main {
     border-radius: 10px;
 }
 
+/* Laufbahn Container */
 .laufbahn_container {
     flex: 2;
     display: flex;
@@ -280,15 +283,24 @@ footer {
     height: 150px;
 }
 
-/*-----------Media Queries für Mobile-------------*/
+/*===========================================================
+  DESKTOP (> 768px):
+  - Skill-Container im Header: VERSTECKT  (höhere Spezifität: header + class)
+  - Skill-Container im Main:   SICHTBAR
+===========================================================*/
+header .mobile_skill_header {
+    display: none;
+}
+
+/*===========================================================
+  MOBILE (<= 768px):
+  - Skill-Container im Header: SICHTBAR
+  - Skill-Container im Main:   VERSTECKT
+===========================================================*/
 
 @media screen and (max-width: 1024px) {
-    .kopfzeile_box {
-        gap: 15px;
-    }
-    .main_box {
-        gap: 15px;
-    }
+    .kopfzeile_box { gap: 15px; }
+    .main_box { gap: 15px; }
 }
 
 @media screen and (max-width: 768px) {
@@ -301,25 +313,26 @@ footer {
         font-size: 32px;
     }
 
+    /* Skills links, Bild+Text rechts */
     .kopfzeile_box {
         flex-direction: row;
         align-items: flex-start;
         gap: 15px;
     }
 
-    /* Skills-Container im Header auf Mobile einblenden */
-    .mobile_skill_header {
+    /* Header-Skill-Container einblenden */
+    header .mobile_skill_header {
         display: flex;
         flex: 1;
         min-height: unset;
         align-self: stretch;
     }
 
-    .mobile_skill_header .skill_bar {
+    header .mobile_skill_header .skill_bar {
         width: 100%;
     }
 
-    /* Skills-Container im Main auf Mobile ausblenden */
+    /* Main-Skill-Container ausblenden */
     .desktop_skill_main {
         display: none;
     }
@@ -343,7 +356,7 @@ footer {
 
     .Kontaktdaten {
         justify-content: center;
-        gap: 15px;
+        gap: 10px;
     }
 
     .bild_box img {
@@ -380,7 +393,7 @@ footer {
     .Kontaktdaten {
         flex-direction: column;
         gap: 8px;
-        align-items: center;
+        align-items: flex-start;
     }
 
     .Kontakt_item {
