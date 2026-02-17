@@ -107,12 +107,12 @@ h2 {
 
 /* Desktop: Mobile-Kopie im Header ausblenden */
 .mobile_skill_header {
-    display: none;
+    display: none !important;
 }
 
 /* Desktop: Original im Main anzeigen */
 .desktop_skill_main {
-    display: flex;
+    display: flex !important;
 }
 
 /*-----------Main---------------*/
@@ -320,7 +320,7 @@ footer {
 
     /* Mobile-Kopie des Skill-Containers im Header einblenden */
     .mobile_skill_header {
-        display: flex;
+        display: flex !important;
         flex: 1;
         min-height: unset;
         align-self: stretch;
@@ -328,7 +328,7 @@ footer {
 
     /* Original im Main ausblenden */
     .desktop_skill_main {
-        display: none;
+        display: none !important;
     }
 
     /* skill_bar im Header: volle Breite statt fixer 350px */
