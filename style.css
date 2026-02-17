@@ -44,7 +44,6 @@ h2 {
     margin: 0 auto;
 }
 
-/* Wrapper für Bild + Text im Header */
 .kopf_rechts {
     display: flex;
     align-items: center;
@@ -105,14 +104,9 @@ h2 {
     object-fit: cover;
 }
 
-/* Desktop: Mobile-Kopie im Header ausblenden */
+/* Auf Desktop: Header-Kopie unsichtbar */
 .mobile_skill_header {
-    display: none !important;
-}
-
-/* Desktop: Original im Main anzeigen */
-.desktop_skill_main {
-    display: flex !important;
+    display: none;
 }
 
 /*-----------Main---------------*/
@@ -133,7 +127,6 @@ main {
     margin: 0 auto;
 }
 
-/* Gemeinsame Card-Styles */
 .mein-card {
     background-color: #1e293b;
     border-radius: 1rem;
@@ -143,7 +136,6 @@ main {
         0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
-/* Skills Container */
 .skill_container {
     flex: 1;
     display: flex;
@@ -206,7 +198,6 @@ main {
     border-radius: 10px;
 }
 
-/* Laufbahn Container */
 .laufbahn_container {
     flex: 2;
     display: flex;
@@ -289,18 +280,15 @@ footer {
 
 /*-----------Media Queries für Mobile-------------*/
 
-/* Tablets und kleinere Desktops */
 @media screen and (max-width: 1024px) {
     .kopfzeile_box {
         gap: 15px;
     }
-
     .main_box {
         gap: 15px;
     }
 }
 
-/* Tablets im Portrait-Modus */
 @media screen and (max-width: 768px) {
     header {
         padding: 30px 15px;
@@ -311,32 +299,29 @@ footer {
         font-size: 32px;
     }
 
-    /* Mobile: kopfzeile_box als Row – Skills links, Bild+Text rechts */
     .kopfzeile_box {
         flex-direction: row;
         align-items: flex-start;
         gap: 15px;
     }
 
-    /* Mobile-Kopie des Skill-Containers im Header einblenden */
+    /* Skills-Container im Header auf Mobile einblenden */
     .mobile_skill_header {
-        display: flex !important;
+        display: flex;
         flex: 1;
         min-height: unset;
         align-self: stretch;
     }
 
-    /* Original im Main ausblenden */
-    .desktop_skill_main {
-        display: none !important;
-    }
-
-    /* skill_bar im Header: volle Breite statt fixer 350px */
     .mobile_skill_header .skill_bar {
         width: 100%;
     }
 
-    /* Rechte Spalte: Bild oben, Text darunter */
+    /* Skills-Container im Main auf Mobile ausblenden */
+    .desktop_skill_main {
+        display: none;
+    }
+
     .kopf_rechts {
         flex: 2;
         flex-direction: column;
@@ -373,7 +358,6 @@ footer {
     }
 }
 
-/* Smartphones */
 @media screen and (max-width: 480px) {
     header {
         padding: 20px 10px;
@@ -459,7 +443,6 @@ footer {
     }
 }
 
-/* Sehr kleine Smartphones */
 @media screen and (max-width: 360px) {
     header h1 {
         font-size: 22px;
